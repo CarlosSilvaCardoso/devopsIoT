@@ -1,0 +1,26 @@
+admin:
+  serviceAccount:
+    annotations: {}
+jenkins:
+  jenkins:
+    image:
+      repository: jenkins/jenkins
+      tag: lts
+    resources:
+      limits:
+        cpu: "1"
+        memory: 2Gi
+      requests:
+        cpu: 500m
+        memory: 500Mi
+  podSecurityContext:
+    fsGroup: 1000
+    runAsUser: 1000
+  replicas: 1
+kubernetesClusterDomain: cluster.local
+service:
+  ports:
+  - nodePort: 32000
+    port: 8080
+    targetPort: 8080
+  type: NodePort

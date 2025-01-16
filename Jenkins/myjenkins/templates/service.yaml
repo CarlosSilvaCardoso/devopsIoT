@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "myjenkins.fullname" . }}-service
+  labels:
+  {{- include "myjenkins.labels" . | nindent 4 }}
+  annotations:
+    prometheus.io/path: /
+    prometheus.io/port: "8080"
+    prometheus.io/scrape: "true"
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    app: jenkins-server
+    {{- include "myjenkins.selectorLabels" . | nindent 4 }}
+  ports:
+  {{- .Values.service.ports | toYaml | nindent 2 }}
