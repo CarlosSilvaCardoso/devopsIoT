@@ -16,7 +16,7 @@ jenkins:
   podSecurityContext:
     fsGroup: 1000
     runAsUser: 1000
-  replicas: 1
+  replicas: 2
 kubernetesClusterDomain: cluster.local
 service:
   ports:
