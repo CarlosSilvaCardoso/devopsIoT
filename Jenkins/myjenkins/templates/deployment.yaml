@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "myjenkins.fullname" . }}-jenkins
+  namespace: {{ .Values.jenkins.namespace }}
   labels:
   {{- include "myjenkins.labels" . | nindent 4 }}
 spec:
