@@ -17,7 +17,6 @@ jenkins:
     fsGroup: 1000
     runAsUser: 1000
   replicas: 2
-  namespace: devops-tools
 kubernetesClusterDomain: cluster.local
 service:
   ports:
